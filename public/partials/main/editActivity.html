@@ -1,0 +1,48 @@
+<div class="panel panel-default">
+    <div class="panel-body" popover="{{dynamicPopover}}" popover-trigger="mouseenter">
+        <div class="form-inline">
+            <div class="form-group">
+                <input id="categoryInput"
+                       type="text"
+                       ng-model="activity.title"
+                       placeholder="Title"
+                       maxlength="100"
+                       typeahead="category as category.name for category in getCategories($viewValue)"
+                       typeahead-on-select="categoryChange()"
+                       typeahead-min-length="2"
+                       typeahead-wait-ms="500"
+                       ng-change="checkCategoryExists()"
+                       class="form-control col-md-6">
+                </div>
+
+            <div class="form-group">
+                <label for="type">  Category: </label>
+
+                <select id="type"
+                        placeholder="Type"
+                        class="form-control"
+                        ng-options="curType.type_id as curType.name for curType in activityTypes"
+                        ng-model="activity.type_id" >
+                </select>
+
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <textarea name="message"
+                      ng-model="activity.description"
+                      placeholder="Tell us about this activity..."
+                      class="input-lg form-control"
+                      ng-change="checkDescription()"
+                      maxlength="2000"
+                      rows="4">
+            </textarea>
+        </div>
+
+        <div class="footer">
+            <button type="button" ng-hide="isNew" class="btn btn-danger pull-right" data-dismiss="modal" ng-click="deleteAction({activityObj: activity})">Delete</button>
+            <button class="btn btn-primary" ng-disabled="isCategoryExisting || isDescriptionEmpty" ng-click="save(activity)">Save</button>
+            <button type="button" ng-hide="isNew" class="btn btn-default" ng-click="activity.isEditMode = false">Cancel</button>
+        </div>
+    </div>
+</div>

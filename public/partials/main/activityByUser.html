@@ -1,0 +1,20 @@
+<div>
+    <back></back>
+    <br/>
+    <img class="large-profile-img" ng-src="{{getProfilePicture(selectedUser.profile_id)}}">
+    <div class="profile-block">
+        <label class="text-user-name">{{selectedUser.display_name}}</label>
+        <a class="facebook-link"
+           href="{{selectedUser.fb_link}}"
+           ng-show="selectedUser.fb_link"
+           target="_blank">Open Facebook page</a>
+    </div>
+
+    <div ng-repeat="activity in activities"
+         class="well">
+        <p><strong>{{activity.title}}</strong></p>
+        <p ng-click="readMore()">{{activity.description | limitTo:charLimit}}</p>
+
+    </div>
+    <button class="btn btn-primary" ng-click="loadMore()" ng-show="loadMoreVisible" align="center">Load More  <i class="fa fa-refresh"></i> </button>
+</div>

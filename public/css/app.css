@@ -1,0 +1,95 @@
+.text-user-name {
+    color: darkblue;
+}
+
+.text-login {
+    color: white;
+}
+
+.glyphicon-icon {
+    cursor: pointer;
+    float: right;
+}
+
+.profileImg {
+    margin: 15px;
+    width: 50px;
+}
+
+.large-profile-img {
+    margin: 15px;
+    width: 100px;
+    display: inline-block;
+}
+
+.category-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.facebook-link {
+    text-decoration:underline;
+    display: block;
+}
+
+.profile-block {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.fb-login-button {
+    cursor: pointer;
+}
+
+.login-link {
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.3);;
+}
+
+hr.login
+{
+
+}
+
+.all-activities-label-box {
+    height: 40px;
+}
+
+.all-activities-label {
+    position: absolute;
+    bottom: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+a.category {
+    cursor: pointer;
+    font-weight: bold;
+    color: darkblue;
+}
+
+.main-content {
+    background-color: #C0DEED;
+}
+
+.activity-tile {
+    width: 230px;
+    min-height: 210px;
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+}
+
+.like-box {
+    padding: 5px;
+    bottom: 5px;
+    position: absolute;
+}

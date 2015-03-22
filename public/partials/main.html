@@ -1,0 +1,70 @@
+<div id="wrapper">
+    <div id="top-nav" role="navigation" class="fixed" ng-init="init()">
+        <a href="#" class="brand">
+            <span>Leisurea</span>
+        </a>
+        <button type="button" class="navbar-toggle pull-left" id="sidebarToggle">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <ul class="nav-notification clearfix">
+            <li ng-hide="isLogged"><a href="#/login" class="text-login">Login</a></li>
+
+            <li class="profile dropdown" ng-show="isLogged">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <strong ng-bind="currentUser.user.display_name"></strong>
+                    <span><i class="fa fa-chevron-down"></i></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a tabindex="-1" class="main-link" ng-click="openAccountModal()"><i class="fa fa-edit fa-lg"></i> Edit profile</a></li>
+                    <li><a tabindex="-1" href="#/about" class="theme-setting"><i class="fa fa-cog fa-lg"></i> About</a></li>
+                    <li class="divider"></li>
+                    <li><a tabindex="-1" class="main-link" ng-click="logout()"><i class="fa fa-lock fa-lg"></i> Log out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <aside class="fixed">
+        <div class="sidebar-inner scrollable-sidebar">
+            <div class="main-menu">
+                <ul>
+                    <li>
+                        <a ui-sref="main.home">
+                            <span class="menu-icon">
+                            <i class="fa fa-home fa-lg"></i>
+                            </span>
+                            <span class="text">Home</span>
+                            <span class="menu-hover"></span> <!-- Small element on the left hand side -->
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="main.profile">
+                            <span class="menu-icon">
+                            <i class="fa fa-user fa-lg"></i>
+                            </span>
+                            <span class="text">My Profile</span>
+                            <span class="menu-hover"></span> <!-- Small element on the left hand side -->
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="main.people">
+                            <span class="menu-icon">
+                            <i class="fa fa-users fa-lg"></i>
+                            </span>
+                            <span class="text">Find People</span>
+                            <span class="menu-hover"></span> <!-- Small element on the left hand side -->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <div id="main-container">
+        <div ui-view></div>
+    </div>
+
+</div>

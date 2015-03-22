@@ -1,0 +1,28 @@
+<form class="well span8">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-3">
+                <label>First Name</label>
+                <input type="text" class="form-control" placeholder="Your First Name">
+                <label>Last Name</label>
+                <input type="text" class="form-control" placeholder="Your Last Name">
+                <label>Email Address</label>
+                <input type="text" class="form-control" placeholder="Your email address">
+
+                <label>Subject
+                    <select id="subject" name="subject" class="form-control">
+                        <option value="na" selected="">Choose One:</option>
+                        <option value="service">General Customer Service</option>
+                        <option value="suggestions">Suggestions</option>
+                        <option value="product">Product Support</option>
+                    </select>
+                </label>
+            </div>
+            <div class="col-md-6">
+                <label>Message</label>
+                <textarea name="message" id="message" class="input-xlarge span5 form-control" rows="10"></textarea>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary pull-right">Send</button>
+</form>

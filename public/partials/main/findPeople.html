@@ -1,0 +1,26 @@
+<div ng-switch on="myActivities.length < 3">
+    <div ng-switch-default>
+        <div class="row">
+            <div class="col-md-4 all-activities-label-box">
+                <label class="all-activities-label">Find people with similar interests: </label>
+            </div>
+            <div class="col-md-4 col-md-offset-4">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="inputKeywords" placeholder="Search by name" ng-model="inKeywords" delayed-change="filterChangeAction()" data-delay="500"/>
+                </div>
+            </div>
+        </div>
+
+        <div ng-repeat="user in similarUsers track by $index"
+             class="well">
+            <img class="profileImg" ng-src="{{getProfilePicture(user.profile_id)}}">
+            <a href="#/activityByUser/{{user.user_id}}" class="text-user-name">{{user.user_name}}</a>
+
+            <p><a href="#/commonActivities/{{user.user_id}}" ng-show="user.activity_count > 0">You have {{user.activity_count}} interests in common</a></p>
+        </div>
+        <button class="btn btn-primary" ng-click="loadMore()" ng-show="loadMoreVisible" align="center">Load More  <i class="fa fa-refresh"></i> </button>
+    </div>
+    <div ng-switch-when="true">
+        <label>Add at least 3 activities to your profile and you will be able to see other people with similar interests</label>
+    </div>
+</div>

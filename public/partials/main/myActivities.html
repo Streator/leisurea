@@ -1,0 +1,35 @@
+<div ng-init="init()">
+    <img class="large-profile-img" ng-src="{{getProfilePicture(currentUser.user.profile_id)}}">
+    <div class="profile-block">
+        <label class="text-user-name">{{currentUser.user.display_name}}</label>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary pull-right" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-plus"></i> Add New</button>
+    </div>
+
+    <div collapse="isCollapsed">
+        <activity-editor activity="newActivity" saveaction="addNewActivityHandler(result)"/>
+    </div>
+
+    <label>My leisure activities:</label>
+
+    <div ng-repeat="activity in activities"
+        class="well"
+        ng-switch on="activity.isEditMode">
+
+        <div ng-switch-default>
+            <a href="#/activityByCategory/{{activity.category_id}}" class="category">{{activity.title}}</a>
+            <div class="glyphicon-icon" ng-click="activity.isEditMode = true">
+                <span class="glyphicon glyphicon-pencil" tooltip="Edit"></span>
+            </div>
+            <p>{{activity.description}}</p>
+        </div>
+
+        <activity-editor activity="activity"
+                         saveaction="updateActivityHandler(result)"
+                         delete-action="deleteActivity(activityObj)"
+                         ng-switch-when="true"/>
+    </div>
+    <button class="btn btn-primary" ng-click="loadMore()" ng-show="loadMoreVisible" align="center">Load More  <i class="fa fa-refresh"></i> </button>
+</div>
+

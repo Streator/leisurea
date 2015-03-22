@@ -1,0 +1,12 @@
+<div>
+    <back></back>
+    <div ng-repeat="activity in activities track by $index"
+         class="well">
+        <img class="profileImg" ng-src="{{getProfilePicture(activity.owner_profile_id)}}" width="50">
+        <a href="#/activityByUser/{{activity.owner_id}}" class="text-user-name">{{activity.owner_name}}</a>
+        <p><strong>{{activity.title}}</strong></p>
+        <p ng-click="readMore()">{{activity.description | limitTo:charLimit}}</p>
+
+    </div>
+    <button class="btn btn-primary" ng-click="loadMore()" ng-show="loadMoreVisible" align="center">Load More  <i class="fa fa-refresh"></i> </button>
+</div>
